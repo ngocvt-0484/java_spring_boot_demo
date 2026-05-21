@@ -4,5 +4,5 @@ import ngocvt.local.ngocvt.modules.users.request.LoginRequest;
 import ngocvt.local.ngocvt.modules.users.resources.LoginResource;
 
 public interface UserServiceInterface {
-    LoginResource login(LoginRequest request);
+    Object authenticate(LoginRequest request);
 }

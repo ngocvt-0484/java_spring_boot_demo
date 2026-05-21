@@ -1,5 +1,6 @@
 package ngocvt.local.ngocvt.services;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -30,5 +31,14 @@ public class JwtService {
                 .setExpiration(expiryDate)
                 .signWith(key, SignatureAlgorithm.HS512)
                 .compact();
+    }
+
+    public String extractUserName(String token) {
+        try {
+            Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
+            return claims.getSubject();
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

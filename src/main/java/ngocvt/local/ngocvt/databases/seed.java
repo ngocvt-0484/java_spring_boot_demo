@@ -1,8 +1,7 @@
 package ngocvt.local.ngocvt.databases;
-<<<<<<< HEAD
-=======
 import ngocvt.local.ngocvt.modules.users.repositories.UserRepository;
->>>>>>> 4a8c04b (Add seed fake data)
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +13,8 @@ import ngocvt.local.ngocvt.modules.users.entities.User;
 
 @Component
 public class seed implements CommandLineRunner {
+    private static final Logger logger = LoggerFactory.getLogger(seed.class);
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -53,7 +54,7 @@ public class seed implements CommandLineRunner {
 //                user.setImage("123");
 //                entityManager.persist(user);
             // Cach 3: Su dung Repository
-                User user1 = new User("admin4", "a@gmail.com", passwordEncode, "1", "1", "1");
+                //User user1 = new User("admin4", "a@gmail.com", passwordEncode, "1", "1", "1");
                 User user = new User();
                 user.setName("admin3");
                 user.setEmail("admin3@gmail.com");;
@@ -62,7 +63,8 @@ public class seed implements CommandLineRunner {
                 user.setAddress("123");
                 user.setImage("123");
                 userRepository.save(user);
-                userRepository.save(user1);
+               // userRepository.save(user1);
+                logger.info("Users table seeded successfully.");
         }
 
         System.out.println("Seeding database...");

@@ -1,8 +1,8 @@
 package ngocvt.local.ngocvt.modules.users.services.interfaces;
 
-import ngocvt.local.ngocvt.modules.users.dtos.LoginRequest;
-import ngocvt.local.ngocvt.modules.users.dtos.LoginResponse;
+import ngocvt.local.ngocvt.modules.users.request.LoginRequest;
+import ngocvt.local.ngocvt.modules.users.resources.LoginResource;
 
 public interface UserServiceInterface {
-    LoginResponse login(LoginRequest request);
+    LoginResource login(LoginRequest request);
 }

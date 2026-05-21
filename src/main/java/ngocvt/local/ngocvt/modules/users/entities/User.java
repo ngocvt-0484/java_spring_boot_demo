@@ -1,16 +1,27 @@
 package ngocvt.local.ngocvt.modules.users.entities;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
+// start: k phải viết get, set nữa nó sẽ tự động thêm vô giup ngắn gọn code
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+// end
 
 @Entity
+// tên class sẽ trùng tên table, trường hợp khác thì phải thêm @Table(name="tên_table")
 @Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "user_catalogue_id")
+    private Long userCatalogueId;
 
-    private Long user_catalogue_id;
     private String name;
     private String email;
     private String password;
@@ -34,21 +45,21 @@ public class User {
         updatedAt = LocalDateTime.now();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
 
     public Long getUserCatalogueId() {
-        return user_catalogue_id;
+        return userCatalogueId;
     }
 
-    public void setUserCatalogueId(Long user_catalogue_id) {
-        this.user_catalogue_id = user_catalogue_id;
+    public void setUserCatalogueId(Long userCatalogueId) {
+        this.userCatalogueId = userCatalogueId;
     }
 
 

@@ -15,7 +15,7 @@ import org.springframework.validation.annotation.Validated;
 
 @Validated
 @RestController
-@RequestMapping("v1/auth")
+@RequestMapping("api/v1/auth")
 public class AuthController {
 
     private final UserServiceInterface userService;
